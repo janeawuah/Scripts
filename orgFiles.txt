@@ -1,0 +1,37 @@
+#this file is to organize files based on the file type`
+#!/bin/sh
+thedir=toSort
+theDIR=~/cmd/$thedir
+cd $theDIR
+
+mkdir textFiles
+mkdir videoFiles
+mkdir audioFiles
+
+ls -1 $theDIR > fileName # this will list all the files in the given directory
+
+
+#this is to find the file extensions and put them in specific files
+grep .txt fileName > textFile
+grep .mp3 fileName > audFile
+grep .mp4 fileName > vidFile
+
+#move the files now
+for i in `cat textFile`
+do
+    mv $i textFiles
+done
+
+for i in `cat audFile`
+do
+    mv $i audioFiles
+done
+
+for i in `cat vidFile`
+do
+    mv $i videoFiles
+done
+
+
+rm fileName
+cd ~/cmd
