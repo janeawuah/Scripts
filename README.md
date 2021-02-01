@@ -1,2 +1,2 @@
 # Scripts
-These are some simple scripts to do everyday activities
+These are some simple scripts to perform everyday activities
