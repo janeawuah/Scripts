@@ -1,0 +1,29 @@
+action=$1
+course=$2
+if [ $action != "rep" ]
+then
+    echo $action $course `date +"%H:%M"` >> $HOME/time
+    exit 0
+fi
+
+#report on the time that has already been logged
+FILES=$HOME/time
+cat $FILES | grep $course | awk '
+{
+action = $1
+time = $3
+    if($action ~ ".*Start.*" )
+    {
+        start_time=time
+
+    }
+    else if($action ~ ".*Stop.*")
+    {
+        end_time=time
+        print  "start_time is " start_time  "End time is " end_time
+    }
+
+
+
+
+}'
