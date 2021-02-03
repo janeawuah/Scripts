@@ -1,0 +1,9 @@
+#this script is to read the lines of a file one after the other
+
+
+#!/bin/bash
+for i in `cat $1`
+do
+    echo $i
+done
+~     
